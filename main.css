@@ -1,0 +1,78 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                Input groups                                */
+/* -------------------------------------------------------------------------- */
+.c-input-group {
+  display: flex;
+  gap: 4px;
+}
+.c-input-group input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 4px 8px;
+}
+.c-input-group label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Fieldsets                                 */
+/* -------------------------------------------------------------------------- */
+.c-fieldsets {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+fieldset {
+  max-width: 100%;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  flex-grow: 1;
+}
+
+.c-fieldsets + .c-button {
+  margin-top: 16px;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                               Header, Footer                               */
+/* -------------------------------------------------------------------------- */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                    Other                                   */
+/* -------------------------------------------------------------------------- */
+.c-button {
+  font-size: 1rem;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.c-button--small {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+}

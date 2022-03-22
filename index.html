@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google RSA preview</title>
+<link rel="stylesheet" href="/main.css">
+
+<header>
+  <button class="c-button c-button--small" id="save">Save</button>
+  <button class="c-button c-button--small" id="load">Load</button>
+  <button class="c-button c-button--small" id="reset">Reset</button>
+</header>
+
+<main>
+  <form id="rsa_form">
+    <div class="c-fieldsets">
+
+      <fieldset>
+        <legend>Headlines</legend>
+
+        <div class="c-input-group">
+          <!-- <label for="headline_1">Headline 1</label> -->
+          <input type="text" id="headline_1" maxlength="30">
+          <select id="headline_1_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_2">Headline 2</label> -->
+          <input type="text" id="headline_2" maxlength="30">
+          <select id="headline_2_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_3">Headline 3</label> -->
+          <input type="text" id="headline_3" maxlength="30">
+          <select id="headline_3_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_4">Headline 4</label> -->
+          <input type="text" id="headline_4" maxlength="30">
+          <select id="headline_4_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_5">Headline 5</label> -->
+          <input type="text" id="headline_5" maxlength="30">
+          <select id="headline_5_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_6">Headline 6</label> -->
+          <input type="text" id="headline_6" maxlength="30">
+          <select id="headline_6_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_7">Headline 7</label> -->
+          <input type="text" id="headline_7" maxlength="30">
+          <select id="headline_7_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_8">Headline 8</label> -->
+          <input type="text" id="headline_8" maxlength="30">
+          <select id="headline_8_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_9">Headline 9</label> -->
+          <input type="text" id="headline_9" maxlength="30">
+          <select id="headline_9_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_10">Headline 10</label> -->
+          <input type="text" id="headline_10" maxlength="30">
+          <select id="headline_10_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_11">Headline 11</label> -->
+          <input type="text" id="headline_11" maxlength="30">
+          <select id="headline_11_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_12">Headline 12</label> -->
+          <input type="text" id="headline_12" maxlength="30">
+          <select id="headline_12_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_13">Headline 13</label> -->
+          <input type="text" id="headline_13" maxlength="30">
+          <select id="headline_13_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_14">Headline 14</label> -->
+          <input type="text" id="headline_14" maxlength="30">
+          <select id="headline_14_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="headline_15">Headline 15</label> -->
+          <input type="text" id="headline_15" maxlength="30">
+          <select id="headline_15_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Descriptions</legend>
+
+        <div class="c-input-group">
+          <!-- <label for="description_1">Description 1</label> -->
+          <input type="text" id="description_1" maxlength="90">
+          <select id="description_1_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="description_2">Description 2</label> -->
+          <input type="text" id="description_2" maxlength="90">
+          <select id="description_2_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="description_3">Description 3</label> -->
+          <input type="text" id="description_3" maxlength="90">
+          <select id="description_3_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="c-input-group">
+          <!-- <label for="description_4">Description 4</label> -->
+          <input type="text" id="description_4" maxlength="90">
+          <select id="description_4_pin">
+            <option value="-1" selected>No pin</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+      </fieldset>
+    </div>
+
+    <input type="submit" value="Preview" class="c-button">
+  </form>
+
+  <hr>
+
+  <div class="c-results" id="results_container"></div>
+</main>
+
+<template id="result_template">
+  <div class="c-result">
+    <div class="c-result-headline"></div>
+    <div class="c-result-description"></div>
+  </div>
+</template>
+
+<script src="/main.js"></script>
