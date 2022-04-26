@@ -1,3 +1,20 @@
+// Get the next sibling element that matches a given selector
+function getNextSibling(element, selector) {
+	let sibling = element.nextElementSibling;
+
+	// If the sibling matches our selector, use it
+	// If not, jump to the next sibling and continue the loop
+	while (sibling) {
+		if (sibling.matches(selector)) {
+      return sibling;
+    }
+
+		sibling = sibling.nextElementSibling
+	}
+
+  return null;
+};
+
 // Returns an array of arrays of possibilities. [[1,2,3,4], [1,2,4,3], ...]
 function combinerR(all_elements = [], combo_length) {
   if (combo_length <= 1) {
@@ -66,11 +83,12 @@ function getRsaCombinations(headline_objects, description_objects) {
   }
 
   // Combine the headlines
-  const headline_idx_combos = combinerR(headline_indexes, 3);
+  const headline_idx_combos = combinerR(headline_indexes, 2);
+  headline_idx_combos.push(...combinerR(headline_indexes, 3));
 
   // Weed out the ones that dont contain a headline in the right "Pinned" position
-  for (let i = 0; i < headline_pins.length; i++) {
-    const must_contain = headline_pins[i];
+  for (let pin_location = 0; pin_location < headline_pins.length; pin_location++) {
+    const must_contain = headline_pins[pin_location];
     if (must_contain.length <= 0) {
       // No headlines were pinned for this spot
       continue;
@@ -79,8 +97,13 @@ function getRsaCombinations(headline_objects, description_objects) {
     // Loop through backwards so removing an array element doesn't cause us to go out of bounds
     for (let combo_idx = headline_idx_combos.length - 1; combo_idx >= 0; combo_idx--) {
       const combo = headline_idx_combos[combo_idx];
+      if (combo.length < (pin_location + 1)) {
+        // Pin #3s have no effect on combos of length 2
+        continue;
+      }
+
       // This particular combination does not contain a headline that was pinned to this spot
-      if (!must_contain.includes(combo[i])) {
+      if (!must_contain.includes(combo[pin_location])) {
         headline_idx_combos.splice(combo_idx, 1);
       }
     }
@@ -242,23 +265,28 @@ load_button.addEventListener('click', () => loadForm());
 const reset_button = document.querySelector('#reset');
 reset_button.addEventListener('click', () => resetForm());
 
+function bulkInputPaster(input_group, paste_event) {
+  paste_event.preventDefault();
 
+  const pasted_text = paste_event.clipboardData.getData('text');
+  const lines = pasted_text.split('\n');
 
-// const combos = getRsaCombinations([
-//   {headline: 'Backed By a 5-Year Warranty', pin_to: null},
-//   {headline: 'Durable And Scratch Resistant', pin_to: null},
-//   {headline: 'Slip Resistant Epoxy Flooring', pin_to: 1},
-//   {headline: 'Professional Epoxy Flooring', pin_to: 1},
-// //  {headline: 'Commercial and Industrial', pin_to: null},
-//   {headline: 'Beautiful and Long Lasting', pin_to: null},
-//   {headline: 'Prevent Slips, Trips and Falls', pin_to: null},
-//   {headline: 'Over 1 Million sq feet coated', pin_to: null},
-//   {headline: '2500+ happy customers', pin_to: null},
-//   {headline: 'Speak to a flooring expert now', pin_to: null},
-//   {headline: 'Industrial-grade Epoxy Floors', pin_to: 1},
-//   {headline: 'Commercial-grade Epoxy Floors', pin_to: 1},
-//   {headline: 'Epoxy Flooring Specialists', pin_to: 1},
-//   {headline: 'Speak to an expert today', pin_to: null},
-//   {headline: 'Protect your floor and workers', pin_to: null},
-// ], []);
-// console.log(combos);
+  for (const line of lines) {
+    const input = input_group.querySelector('input');
+    if (!input) {
+      break;
+    }
+
+    input.value = line;
+
+    // Keep pasting into the next input until there are none left
+    input_group = getNextSibling(input_group, '.c-input-group');
+    if (!input_group) {
+      break;
+    }
+  }
+}
+
+[...document.querySelectorAll('.c-input-group')].forEach(group => {
+  group.querySelector('input')?.addEventListener('paste', (event) => bulkInputPaster(group, event));
+});
